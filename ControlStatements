@@ -1,0 +1,110 @@
+import java.util.*;
+
+class ControlStatements
+{
+public static void main(String[] args)
+{
+//System.out.println("Works with if_else statements");
+//IfElse ie = new IfElse();
+//ie.checkoddeven();
+//System.out.println("working with switch statement");
+//Switch sw = new Switch();
+//sw.switch_statement();
+//System.out.println("working with for loop");
+//Forloop fl = new Forloop();
+//fl.works_with_forloop();
+ForEach fe = new ForEach();
+fe.works_with_foreach();
+}
+}
+
+
+
+class IfElse
+{
+public void checkoddeven()
+{
+Scanner sc = new Scanner(System.in);
+System.out.println("Please Enter an age");
+int age = sc.nextInt();
+System.out.println("Please Enter your name");
+String name = sc.next();
+if(age>18)
+{
+System.out.println("Hii "+ name +" you are eligible for vote");
+}
+else
+{
+System.out.println("Hii "+ name +" you are not eligible for vote");
+}
+}
+//sc.close();
+
+}
+
+
+
+class Switch
+{
+String levelstring = "";
+int level = 0;
+public void switch_statement()
+{
+Scanner  sc = new Scanner(System.in);
+String yourlevel = sc.next();
+
+switch(yourlevel)
+{
+case "Expert":
+level = 1;
+System.out.println("your level is Expert");
+break;
+
+case "Intermediate":
+level = 2; 
+System.out.println("your level is Intermlediate");
+break;
+
+case "Junior" :
+level = 3;
+System.out.println("your level is junior");
+break;
+
+default :
+level = 0;
+break;
+
+}
+System.out.println("your level is "+ level);
+}
+}
+
+
+class Forloop
+{
+public void works_with_forloop()
+{
+for(int i=0; i<10; i++)
+{
+System.out.println(i);
+}
+}
+}
+
+class ForEach
+{
+int arr[] = {1,2,3,4,5,6,7,8,9};
+public void works_with_foreach()
+{
+for(int  i : arr)
+System.out.println(i);
+}
+}
+
+class ForWithLabel
+{
+public void work_with_for_with_label()
+{
+
+}
+}
