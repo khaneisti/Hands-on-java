@@ -1,0 +1,48 @@
+class Account
+{
+int account_no;
+float amount;
+String name;
+
+public void initialize_variable(int account_no, float amount, String name)
+{
+
+this.account_no = account_no;
+this.amount = amount;
+this.name = name;
+
+}
+
+public float display_amount()
+{
+return amount;
+}
+
+public void insert_amount(int amount_to_be_insert)
+{
+amount = amount + amount_to_be_insert; 
+System.out.println("Your amount of € "+ amount_to_be_insert+"has been inserted");
+}
+
+public void widraw_amount(int amount_to_be_widraw)
+{
+if(amount_to_be_widraw < amount)
+{
+amount = amount - amount_to_be_widraw;
+System.out.println("you have widrawed € "+amount_to_be_widraw+" rest of the amount in your account is"+ amount);
+} 
+else
+{
+System.out.println("you don't have sufficient amount in your account");
+}
+}
+
+public static void main(String []args)
+{
+Account act = new Account();
+act.initialize_variable(123899,1103.46F,"KHANDELWAL");
+System.out.println("amount in your account is "+act.display_amount());
+act.widraw_amount(40);
+act.insert_amount(894);
+}
+}
