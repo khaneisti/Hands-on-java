@@ -1,0 +1,65 @@
+class Oops
+{
+int id;
+String name;
+
+public static void main(String []args)
+{
+Oops ob = new Oops(); // Crearting the object of the class.
+System.out.println("value of id variable by default is " + ob.id);
+System.out.println("value of name variable by default" + ob.name );
+
+//Instantiate of another class
+
+InitializationThroughReference itr = new InitializationThroughReference();
+itr.id = 101;
+itr.name = "Abhishek";
+System.out.println("Value of Intialized variable from reference" + itr.id +" "+itr.name);
+
+// Instantiate of another class
+InitializationThroughMethod itm = new InitializationThroughMethod();
+itm.initialization(111,"Abhishek khandelwal ");
+itm.display();
+}
+}
+
+//Another class
+
+
+class InitializationThroughReference
+{
+int id;
+String name;
+}
+
+//Another class 
+
+
+class InitializationThroughMethod
+{
+int id;
+String name;
+
+public void initialization(int id, String name)
+{
+this.id = id;
+this.name = name;
+}
+
+public void display()
+{
+System.out.println("values of variables are"+ " " + id+ " "+ name);
+}
+
+}
+
+/*
+What are the different ways to create an instanse
+
+1. by new keyword
+2. by newInstance method
+3. by clone method
+4. by deserialization method
+5.by factory method
+
+ */
