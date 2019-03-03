@@ -1,0 +1,116 @@
+/*
+Basically we have six uses of this keyword. 
+
+1. used to remove the conflict between instance variable and local variables.
+
+2. used to invoke the current class method.
+
+3. used to invoke the current class constructor.
+
+4. used to passed as an argument in method .
+
+5. used to return the instance of the current class.
+
+6. used to pass as an argument into a constructor.
+*/
+
+class This
+{
+int id;
+String name;
+
+public This(int id, String name)
+{
+
+this.id = id;
+this.name = name;
+}
+
+public void display()
+{
+System.out.println("this is the first useof the this keyword values of the instance variables are"+ id + " and " +name);
+}
+
+public static void main(String[]args)
+{
+
+This ts = new This(1,"Akash");
+ts.display();
+
+//Creating instance of another class
+SecondUse su = new SecondUse();
+su.n();
+
+//Creating instance of another class
+ThirdUse tu = new ThirdUse();
+
+
+//Creating an instance of another class
+
+FourthUse fu = new FourthUse();
+fu.calledByInstance();
+
+
+}
+
+}
+
+//ANOTHER CLASS
+
+class SecondUse
+{
+public void m()
+{
+System.out.println("Hello m");
+}
+
+public void n()
+{
+System.out.println("Hello n");
+this.m();
+}
+}
+
+//ANOTHER CL ASS
+
+class ThirdUse 
+{
+public ThirdUse()
+{
+this(101); // In this case your this statement must be the first //inside the constructor
+System.out.println("Inside default constructor");
+
+}
+
+public ThirdUse(int id)
+{
+
+System.out.println("constructor called by the this");
+System.out.println("hii your id is " + id);
+}
+}
+
+
+//ANOTHER CLASS
+
+class FourthUse
+{
+int id =101;
+public void calledByInstance()
+{
+System.out.println("method before passed this");
+passingThisMethod(this);
+System.out.println("return back after passed this inside this");
+}
+
+public void passingThisMethod(FourthUse fuse)
+{
+System.out.println("Inside This passed method");
+}
+}
+
+
+//ANOTHER CLASS
+
+class FifthUse
+{}
