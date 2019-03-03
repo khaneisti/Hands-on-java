@@ -1,0 +1,51 @@
+import java.sql.*;
+
+// to execute this program we need to put sql connector jar file in jre/lib/ext folder
+
+class Jdbc
+{
+Connection con;
+Statement st;
+Jdbc()
+{
+
+try 
+{
+Class.forName("com.mysql.jdbc.Driver");
+con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","123456");
+st = con.createStatement();
+int i = st.executeUpdate("show databases");
+if(i != 0)
+{
+System.out.println("query executed");
+}
+}
+catch(ClassNotFoundException cse)
+{
+System.out.println(cse);
+}
+catch(SQLException se)
+{
+System.out.println(se);
+}
+finally
+{
+try
+{
+con.close();
+st.close();
+}
+catch(Exception cse)
+{
+System.out.println(cse);
+}
+}
+}
+public static void main(String[] args)
+{
+new Jdbc();
+}
+
+
+
+}
