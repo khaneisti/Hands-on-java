@@ -1,0 +1,43 @@
+class Employee
+{
+int id;
+String name;
+Address ad;
+
+public Employee(int id, String name, Address ad)
+{
+this.id = id;
+this.name = name;
+this.ad = ad;
+
+}
+
+public void displayInformation()
+{
+System.out.println("Information of an Employee" + " " + id + "and name is"+name+" "+ad.street+ " "+ad.City+ " "+ad.State );
+}
+
+public static void main(String []args)
+{
+Address ad1 = new Address("II de France", "Cergy","street_name ");
+Address ad2 = new Address("Normandie","city_name","street_name");
+
+Employee emp = new Employee(111,"Florent",ad1);
+emp.displayInformation();
+}
+
+}
+
+class Address
+{
+String State;
+String City;
+String street;
+
+public Address(String State, String City, String street)
+{
+this.State = State;
+this.City = City;
+this.street = street;
+}
+}
