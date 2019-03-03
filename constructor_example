@@ -1,0 +1,129 @@
+class ConstructorExample
+{
+int id;
+String name;
+
+public ConstructorExample()
+{}
+
+public ConstructorExample(int id, String name)
+{
+this.id = id;
+this.name = name;
+}
+
+public void display()
+{
+System.out.println("here is the information of the student" + "  " + id + " " + name );
+}
+public static void main(String []args)
+{
+ConstructorExample ce = new ConstructorExample();
+System.out.println("we are going to see the default values of these instance variable");
+ce.display();
+
+
+// Another class instantiation
+System.out.println(" EXECUTION OF ANOTHER CLASS");
+ConstructorWP cwp =new ConstructorWP(101, "Abhishek");
+cwp.display();
+
+
+// Another class instantiation
+System.out.println(" EXECUTION OF ANOTHER CLASS");
+CopyWithConstructor cwcobj = new CopyWithConstructor(101,"neel");
+cwcobj.display();
+System.out.println("execution of copying the values");
+CopyWithConstructor cwcobj1 = new CopyWithConstructor(cwcobj);
+cwcobj1.display();
+
+
+//ANOTHER CLASS INSTANCIATION
+System.out.println("Execution of the another class");
+CopyWithoutConstructor  cwoc =  new CopyWithoutConstructor(5,"Abhishek");
+cwoc.display();
+System.out.println("creating another object for the same class");
+CopyWithoutConstructor cwoc1 = new CopyWithoutConstructor();
+cwoc1.id  = cwoc.id;
+cwoc1.name = cwoc.name;
+System.out.println("displaying values after copying");
+cwoc1.display();
+}
+}
+
+
+//Another Class
+
+class ConstructorWP
+{
+int id;
+String name;
+
+public ConstructorWP(int id, String name)
+{
+this.id = id;
+this.name = name;
+}
+
+public void display()
+{
+System.out.println("here is the value of the instance variables"+ id + name );
+}
+
+}
+
+
+//Another class 
+
+class CopyWithConstructor
+{
+int id;
+String name;
+
+public CopyWithConstructor(int id, String name)
+{
+this.id = id;
+this.name = name;
+}
+
+public CopyWithConstructor(CopyWithConstructor cwc)
+{
+this.id = cwc.id;
+this.name = cwc.name;
+}
+
+public void display()
+{
+System.out.println("here is the value of the instance variables"+ id + name );
+}
+
+
+}
+
+
+
+//Another Class
+
+class CopyWithoutConstructor
+{
+int id;
+String name;
+
+public CopyWithoutConstructor(int id, String name)
+{
+this.id = id;
+this.name = name;
+}
+
+public CopyWithoutConstructor()
+{
+
+}
+
+public void display()
+{
+System.out.println("here is the value of the instance variables"+ id + name );
+
+}
+
+}
