@@ -1,0 +1,63 @@
+import java.sql.*;
+
+class ResultSetE
+{
+Connection con;
+Statement st;
+ResultSet rs;
+ResultSetMetaData rsmd;
+
+public ResultSetE()
+{
+try
+{
+Class.forName("com.mysql.jdbc.Driver");
+con = DriverManager.getConnection("jdbc:mysql://localhost:3306/mysql","root","123456");
+st =con.createStatement();
+rs = st.executeQuery("show databases");
+rsmd = rs.getMetaData();
+System.out.println(rsmd.getColumnCount());
+while(rs.next())
+{
+System.out.println(rs.getString(1));
+}
+int i = st.executeUpdate("use mysql");
+
+if(i !=0)
+{
+System.out.println("Query executed");
+}
+
+rs = st.executeQuery("show tables ");
+while(rs.next())
+{
+System.out.println(rs.getString(1));
+}
+}
+catch(ClassNotFoundException cse)
+{
+System.out.println(cse);
+}
+catch(SQLException se)
+{
+System.out.println();
+}
+finally
+{
+try
+{
+con.close();
+st.close();
+rs.close();
+}
+catch(SQLException se)
+{
+System.out.println(se);
+}
+}
+}
+public static void main(String[] args)
+{
+new ResultSetE();
+}
+}
